@@ -1,0 +1,61 @@
+﻿@page "/"
+@using Azure;
+@using Azure.AI.Vision.ImageAnalysis; 
+@rendermode InteractiveServer
+
+
+<PageTitle>Home</PageTitle>
+
+<h1>Computer Vision</h1>
+<br>
+<p>Insert URL or type prompt</p>
+@* <input type="text" placeholder="Prompt or Image"> *@
+<textarea @bind="inp" rows="5" cols=29 placeholder="Enter url or prompt"></textarea>
+<br>
+<button @onclick="AnalyzeImage">Analyze Image</button>
+&ensp;
+<button @onclick="GenerateImage">Generate Image</button>
+
+@code
+{
+    string inp = "";
+
+    void OnChange(ChangeEventArgs e)
+    {
+        inp = e.Value.ToString();
+    }
+    void AnalyzeImage()
+    {
+        string endpoint = Environment.GetEnvironmentVariable("VISION_ENDPOINT");
+        string key = Environment.GetEnvironmentVariable("VISION_KEY");
+
+        ImageAnalysisClient client = new ImageAnalysisClient(
+            new Uri(endpoint),
+            new AzureKeyCredential(key));
+
+        ImageAnalysisResult result = client.Analyze(
+            new Uri("https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png"),
+            VisualFeatures.Caption | VisualFeatures.Read,
+            new ImageAnalysisOptions { GenderNeutralCaption = true });
+
+        Console.WriteLine("Image analysis results:");
+        Console.WriteLine(" Caption:");
+        Console.WriteLine($"   '{result.Caption.Text}', Confidence {result.Caption.Confidence:F4}");
+
+        Console.WriteLine(" Read:");
+        foreach (DetectedTextBlock block in result.Read.Blocks)
+            foreach (DetectedTextLine line in block.Lines)
+            {
+                Console.WriteLine($"   Line: '{line.Text}', Bounding Polygon: [{string.Join(" ", line.BoundingPolygon)}]");
+                foreach (DetectedTextWord word in line.Words)
+                {
+                    Console.WriteLine($"     Word: '{word.Text}', Confidence {word.Confidence.ToString("#.####")}, Bounding Polygon: [{string.Join(" ", word.BoundingPolygon)}]");
+                }
+            }
+    }
+
+    void GenerateImage()
+    {
+       
+    }
+}

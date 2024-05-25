@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/workspaces/Azure-Image-Generation/obj/Debug/net8.0/scopedcss/projectbundle/Azure-Image-Generation.bundle.scp.css",
+      "PackagePath": "staticwebassets/Azure-Image-Generation.bundle.scp.css"
+    },
+    {
+      "Id": "/workspaces/Azure-Image-Generation/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/workspaces/Azure-Image-Generation/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/workspaces/Azure-Image-Generation/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/workspaces/Azure-Image-Generation/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Azure-Image-Generation.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Azure-Image-Generation.props",
+      "PackagePath": "build\\Azure-Image-Generation.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Azure-Image-Generation.props",
+      "PackagePath": "buildMultiTargeting\\Azure-Image-Generation.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Azure-Image-Generation.props",
+      "PackagePath": "buildTransitive\\Azure-Image-Generation.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
